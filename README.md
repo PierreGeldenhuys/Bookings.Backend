@@ -39,7 +39,7 @@ I focused on clean and simplistic concurrency-safe datatypes available in dotnet
 
 I wanted to demonstrate load testing as far left as possible so I opted for k6 as tooling and consulted GPT 4o-mini on what kind of load scenarios this kind of application can expect and wrote the tests around that.
 
-##Path to Production
+## Path to Production
 My next steps would have been to 
 - run a resource usage trace while performing the load testing and check for leaks (dotnet-trace)
 - dockerize the app and k6, update the readme with the related instructions and cli commands
