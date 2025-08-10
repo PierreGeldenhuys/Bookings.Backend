@@ -25,10 +25,15 @@ pwsh 7, k6
 ## Test Coverage
 `.\TestCoverage.ps1`
 `.\TestCoverage.ps1 -Open`
+[view report](https://pierregeldenhuys.github.io/Bookings.Backend/)
 
 ## Load Test
 `.\LoadTest.ps1`
 (only black box)
+[view concurrency edit load test](https://pierregeldenhuys.github.io/Bookings.Backend/Concurrent_Edit_Test.html)
+[view baseline load test](https://pierregeldenhuys.github.io/Bookings.Backend/Baseline_Load_Test.html)
+[view spike load test](https://pierregeldenhuys.github.io/Bookings.Backend/Spike_Load_Test.html)
+[view mixed crud load test](https://pierregeldenhuys.github.io/Bookings.Backend/Mixed_CRUD_Load_Test.html)
 
 ## Retrospective and Approach
 I test drove this initially but later switched to a hybrid approach, sometimes writing the method before the test. 
