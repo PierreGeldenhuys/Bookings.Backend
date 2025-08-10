@@ -35,11 +35,12 @@ I test drove this initially but later switched to a hybrid approach, sometimes w
 I defined my tests prior to writing the code and this kept me test focused either way. 
 I was aiming for 90% test coverage.
 
-I focused on clean and simplistic concurrency-safe datatypes available in dotnet C# for the in-mem store, instead of struggling with manual locking code, which is tedious to maintain. I learned about record structs while trying to make the lookups for create and update idempotency checks o(1) instead of o(n).
+I focused on clean and simplistic concurrency-safe datatypes available in dotnet C# for the in-mem store, instead of struggling with manual locking code, which is tedious to maintain. 
+I learned about record structs while trying to make the lookups for create and update idempotency checks o(1) instead of o(n).
 
 I wanted to demonstrate load testing as far left as possible so I opted for k6 as tooling and consulted GPT 4o-mini on what kind of load scenarios this kind of application can expect and wrote the tests around that.
 
-##Path to Production
+## Path to Production
 My next steps would have been to 
 - run a resource usage trace while performing the load testing and check for leaks (dotnet-trace)
 - dockerize the app and k6, update the readme with the related instructions and cli commands
