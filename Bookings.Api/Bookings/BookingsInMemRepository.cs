@@ -44,6 +44,12 @@ namespace Bookings.Api.Bookings
                 key => id,
                 (key, value) => id);
 
+            if (existing != null)
+            {
+                var oldkey = BookingKey.From(existing);
+                _lookup.TryRemove(oldkey, out _);
+            }
+
             return new(id, updated);
         }
 
@@ -67,5 +73,7 @@ namespace Bookings.Api.Bookings
 
             return new(id, deleted);
         }
+
+        public bool KeyExists(BookingKey key) => _lookup.ContainsKey(key);
     }
 }

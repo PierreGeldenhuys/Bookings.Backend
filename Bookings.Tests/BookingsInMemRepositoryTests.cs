@@ -25,6 +25,7 @@ namespace Bookings.Tests
             var all = _repo.GetAll();
             Assert.NotNull(all);
             Assert.Single(all);
+            Assert.True(_repo.KeyExists(BookingKey.From(booking.Value)));
         }
 
         [Fact]
@@ -37,6 +38,8 @@ namespace Bookings.Tests
             Assert.Equal(created.Key, updated.Key);
             Assert.NotNull(updated.Value);
             Assert.Equal(update, updated.Value);
+            Assert.False(_repo.KeyExists(BookingKey.From(created.Value!)));
+            Assert.True(_repo.KeyExists(BookingKey.From(updated.Value)));
         }
 
         [Fact]
@@ -48,6 +51,7 @@ namespace Bookings.Tests
             Assert.Equal(created.Key, deleted.Key);
             Assert.NotNull(deleted.Value);
             Assert.Equal(created.Value, deleted.Value);
+            Assert.False(_repo.KeyExists(BookingKey.From(created.Value!)));
         }
 
         [Fact]
@@ -99,6 +103,7 @@ namespace Bookings.Tests
                         var booking = _repo.Create(_randomBooking);
                         Assert.NotEqual(Guid.Empty, booking.Key);
                         Assert.NotNull(booking.Value);
+                        Assert.True(_repo.KeyExists(BookingKey.From(booking.Value)));
                     }
                     else
                     {

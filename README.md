@@ -11,7 +11,7 @@ can add a unit test or frontend (console, web etc.) to show it working it would 
 dotnet, C#
 
 ## Tooling
-pwsh 7, k6
+pwsh 7, k6, dotnet-counters
 
 ## Build
 `dotnet build`
@@ -35,12 +35,27 @@ pwsh 7, k6
 ### [view spike load test](https://pierregeldenhuys.github.io/Bookings.Backend/Spike_Load_Test.html)
 ### [view mixed crud load test](https://pierregeldenhuys.github.io/Bookings.Backend/Mixed_CRUD_Load_Test.html)
 
+## Memory Profile
+`.\ProfileMemory.ps1` then analyze `.\counters.csv`
+(conducted during load test)
+
+Working set memory (dotnet.process.memory.working_set) is consistently high
+around 150 MB, which is expected for a minimal API under load — nothing alarming.
+
+Heap segment breakdown (gc.heap.size subsegments):
+gc.heap.gen0.size, gen1.size, gen2.size — all show typical short-lived object collection behavior.
+Spikes in Gen 0 are expected under request bursts.
+
+No sudden spikes or memory leaks:
+No increase in heap or working set over time.
+Memory looks stable and reclaimed periodically.
+
 ## Retrospective and Approach
 I test drove this initially but later switched to a hybrid approach, sometimes writing the method before the test. 
-I defined my tests prior to writing the code and this kept me test focused either way. 
+I defined my tests prior to writing the code and this kept me test focused either way.
 I was aiming for 90% test coverage.
 
-I focused on clean and simplistic concurrency-safe datatypes available in dotnet C# for the in-mem store, instead of struggling with manual locking code, which is tedious to maintain. 
+I focused on clean and simplistic concurrency-safe datatypes available in dotnet C# for the in-mem store, instead of struggling with manual locking code, which is tedious to maintain.
 I learned about record structs while trying to make the lookups for create and update idempotency checks o(1) instead of o(n).
 
 I wanted to demonstrate load testing as far left as possible so I opted for k6 as tooling and consulted GPT 4o-mini on what kind of load scenarios this kind of application can expect and wrote the tests around that.
