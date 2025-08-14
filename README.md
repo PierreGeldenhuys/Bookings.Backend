@@ -40,11 +40,11 @@ pwsh 7, k6, dotnet-counters
 (conducted during load test)
 
 Working set memory (dotnet.process.memory.working_set) is consistently high
-around 150 MB, which is expected for a minimal API under load � nothing alarming.
+around 150 MB, which is expected for a minimal API under load nothing alarming.
 
 Heap segment breakdown (gc.heap.size subsegments):
-gc.heap.gen0.size, gen1.size, gen2.size � all show typical short-lived object collection behavior.
-Spikes in Gen 0 are expected under request bursts.
+gc.heap.gen0.size, gen1.size, gen2.size - all show typical short-lived object collection behavior.
+around 150 MB, which is expected for a minimal API under load nothing alarming.
 
 No sudden spikes or memory leaks:
 No increase in heap or working set over time.
