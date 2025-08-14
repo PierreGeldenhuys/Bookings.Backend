@@ -44,7 +44,7 @@ around 150 MB, which is expected for a minimal API under load nothing alarming.
 
 Heap segment breakdown (gc.heap.size subsegments):
 gc.heap.gen0.size, gen1.size, gen2.size - all show typical short-lived object collection behavior.
-Spikes in Gen 0 are expected under request bursts.
+around 150 MB, which is expected for a minimal API under load nothing alarming.
 
 No sudden spikes or memory leaks:
 No increase in heap or working set over time.
