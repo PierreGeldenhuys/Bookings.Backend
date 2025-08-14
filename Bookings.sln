@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		LoadTest.ps1 = LoadTest.ps1
 		Mixed_CRUD_Load_Test.html = Mixed_CRUD_Load_Test.html
+		ProfileMemory.ps1 = ProfileMemory.ps1
 		README.md = README.md
 		Spike_Load_Test.html = Spike_Load_Test.html
 		TestCoverage.ps1 = TestCoverage.ps1
